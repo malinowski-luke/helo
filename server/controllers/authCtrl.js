@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+const img = require('../imgGenerator/imgGenerator')
 module.exports = {
   register: async (req, res) => {
     const db = req.app.get('db')
@@ -10,8 +11,11 @@ module.exports = {
 
     const salt = bcrypt.genSaltSync(10),
       hash = bcrypt.hashSync(password, salt)
-    // console.log(salt, hash)
-    let newUser = await db.register_user([username, hash])
+    let newUser = await db.register_user([
+      username,
+      hash,
+      img.generateRandomImg
+    ])
     newUser = newUser[0]
     session.user = newUser
     res.status(201).send(session.user) // send back user
