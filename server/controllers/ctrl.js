@@ -6,6 +6,11 @@ module.exports = {
     if (posts[0]) res.status(200).send(posts)
     else res.sendStatus(500)
   },
+  getAllPosts: async (req, res) => {
+    const db = req.app.get('db')
+    let posts = await db.get_all_user_posts()
+    res.status(200).send(posts)
+  },
   getPost: async (req, res) => {
     const db = req.app.get('db')
     const { user_id, post_id } = req.params

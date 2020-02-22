@@ -33,17 +33,17 @@
   margin-bottom: 2vh;
 }
 
-h1 {
+.auth-header {
   color: #ffffff;
   font-size: 5.5rem;
   margin: 0;
 }
-label {
+.auth-label {
   color: #ffffff;
   font-size: 1.2rem;
 }
 
-button {
+.auth-button {
   width: 5vw;
   height: 5vh;
   background-color: #403d39;

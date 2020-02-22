@@ -1,0 +1,22 @@
+.PostDisplay {
+  width: 55vw;
+  height: 10vh;
+  border: 1px solid #b9b9b9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vh;
+  padding: 20px;
+}
+
+.text {
+  color: #403d39;
+}
+
+.title {
+  font-size: 2.8rem;
+}
+
+.author {
+  font-size: 1.5;
+}

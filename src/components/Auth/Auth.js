@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import logo from '../../media/logo.png'
+import { connect } from 'react-redux'
+import { getUser } from '../../redux/reducer'
+import axios from 'axios'
 import './Auth.css'
 
-export default class Auth extends Component {
-  constructor() {
-    super()
+class Auth extends Component {
+  constructor(props) {
+    super(props)
     this.state = {
       username: '',
       password: ''
@@ -17,15 +20,43 @@ export default class Auth extends Component {
     })
   }
 
+  handleRegister = () => {
+    const { username, password } = this.state
+    axios
+      .post('/api/auth/register', {
+        username,
+        password
+      })
+      .then(res => {
+        this.props.getUser(res.data)
+        this.props.history.push('/dashboard')
+      })
+      .catch(err => alert(err.response.request.response))
+  }
+
+  handleLogin = () => {
+    const { username, password } = this.state
+    axios
+      .post('/api/auth/login', {
+        username,
+        password
+      })
+      .then(res => {
+        this.props.getUser(res.data)
+        this.props.history.push('/dashboard')
+      })
+      .catch(err => alert(err.response.request.response))
+  }
+
   render() {
     const { username, password } = this.state
     return (
       <div className='Auth'>
         <div className='container'>
           <img src={logo} alt='logo' />
-          <h1>Helo</h1>
+          <h1 className='auth-header'>Helo</h1>
           <div className='input-container'>
-            <label>Username:</label>
+            <label className='auth-label'>Username:</label>
             <input
               name='username'
               value={username}
@@ -33,7 +64,7 @@ export default class Auth extends Component {
             />
           </div>
           <div className='input-container'>
-            <label>Password:</label>
+            <label className='auth-label'>Password:</label>
             <input
               name='password'
               value={password}
@@ -42,14 +73,18 @@ export default class Auth extends Component {
           </div>
           <div>
             <button
+              className='auth-button'
               onClick={() => {
+                this.handleLogin()
                 this.setState({ username: '', password: '' })
               }}
             >
               Login
             </button>
             <button
+              className='auth-button'
               onClick={() => {
+                this.handleRegister()
                 this.setState({ username: '', password: '' })
               }}
             >
@@ -61,3 +96,5 @@ export default class Auth extends Component {
     )
   }
 }
+
+export default connect(null, { getUser })(Auth)

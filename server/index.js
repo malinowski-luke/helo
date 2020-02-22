@@ -42,6 +42,7 @@ app.post('/api/auth/logout', ctrlAuth.logout)
 app.get('/api/user', ctrlAuth.getUser)
 
 //app functionality
+app.get('/api/posts', ctrl.getAllPosts)
 app.get('/api/posts/:user_id', ctrl.getPosts)
 app.get('/api/post/:user_id/:post_id', ctrl.getPost)
 app.post('/api/post/:user_id', ctrl.addPost)

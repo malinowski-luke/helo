@@ -1,0 +1,46 @@
+.Nav {
+  width: 15vh;
+  height: 100vh;
+  background-image: linear-gradient(180deg, #ff9770 10%, #ff70a6 100%);
+  box-shadow: 5px 5px 10px #403d39;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-container {
+  margin: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profile-img-container {
+  width: 90px;
+  height: 90px;
+  background-color: #f3f3f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  max-width: 75%;
+}
+
+.username-text {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.img {
+  margin: 2vw;
+  max-width: 40%;
+}
