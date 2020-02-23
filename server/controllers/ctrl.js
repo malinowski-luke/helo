@@ -19,6 +19,16 @@ module.exports = {
     if (post) res.status(200).send(post)
     else res.sendStatus(500)
   },
+  searchPosts: async (req, res) => {
+    const { keyword, author_id } = req.query
+    console.log(author_id)
+    const db = req.app.get('db')
+    let posts = []
+    if (author_id)
+      posts = await db.filter_posts_by_key_author([`%${keyword}%`, author_id])
+    else posts = await db.filter_posts_by_keyword([`%${keyword}%`])
+    res.status(200).send(posts)
+  },
   addPost: (req, res) => {
     const db = req.app.get('db')
     const { user_id } = req.params

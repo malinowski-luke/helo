@@ -4,6 +4,7 @@ import homeLogo from '../../media/home.png'
 import logoutLogo from '../../media/logout.png'
 import { connect } from 'react-redux'
 import { logout } from '../../redux/reducer'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './Nav.css'
 
@@ -14,7 +15,6 @@ const Nav = props => {
       props.history.push('/')
     })
   }
-  console.log(props.user)
   const { user } = props
   return (
     <div className='Nav'>
@@ -28,8 +28,12 @@ const Nav = props => {
             />
           </div>
           <p className='username-text'>{user.username}</p>
-          <img src={postLogo} alt='post' className='img' />
-          <img src={homeLogo} alt='home' className='img' />
+          <Link to='/new'>
+            <img src={postLogo} alt='post' className='img' />
+          </Link>
+          <Link to='/dashboard'>
+            <img src={homeLogo} alt='home' className='img' />
+          </Link>
         </div>
         <img src={logoutLogo} alt='logout' className='img' onClick={logout} />
       </div>

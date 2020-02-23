@@ -2,12 +2,14 @@ import React from 'react'
 import './PostDisplay.css'
 
 const PostDisplay = props => {
+  const { post } = props
   return (
     <div className='PostDisplay'>
-      <h1 className='title text'>Ducks</h1>
+      <h1 className='title text'>{post.title}</h1>
       <div>
-        <p className='author text'>by test</p>
-        <img />
+        {/* work on this */}
+        {/* <p className='author text'>by test</p> */}
+        {/* <img /> */}
       </div>
     </div>
   )
