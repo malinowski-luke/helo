@@ -5,7 +5,7 @@ const PostDisplay = props => {
   const { post } = props
   return (
     <div className='PostDisplay'>
-      <h1 className='title text'>{post.title}</h1>
+      <h1 className='title-text'>{post.title}</h1>
       <div>
         {/* work on this */}
         {/* <p className='author text'>by test</p> */}

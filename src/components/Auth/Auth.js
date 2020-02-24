@@ -22,16 +22,18 @@ class Auth extends Component {
 
   handleRegister = () => {
     const { username, password } = this.state
-    axios
-      .post('/api/auth/register', {
-        username,
-        password
-      })
-      .then(res => {
-        this.props.getUser(res.data)
-        this.props.history.push('/dashboard')
-      })
-      .catch(err => alert(err.response.request.response))
+    if (username !== '' || password !== '') {
+      axios
+        .post('/api/auth/register', {
+          username,
+          password
+        })
+        .then(res => {
+          this.props.getUser(res.data)
+          this.props.history.push('/dashboard')
+        })
+        .catch(err => alert(err.response.request.response))
+    } else alert('plsese fill out username and password fields')
   }
 
   handleLogin = () => {

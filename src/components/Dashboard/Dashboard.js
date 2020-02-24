@@ -4,6 +4,7 @@ import PostDisplay from '../PostDisplay/PostDisplay'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import './Dashboard.css'
+import { Link } from 'react-router-dom'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -89,7 +90,11 @@ class Dashboard extends Component {
   render() {
     const { posts, search } = this.state
     let postsDisplayArr = posts.map(elm => {
-      return <PostDisplay key={elm.post_id} post={elm} />
+      return (
+        <Link key={elm.post_id} to={`/post/${elm.post_id}`}>
+          <PostDisplay post={elm} />
+        </Link>
+      )
     })
     return (
       <div className='Dashboard'>

@@ -1,1 +1,2 @@
-SELECT * FROM posts;
+SELECT * FROM posts
+ORDER BY post_id DESC;

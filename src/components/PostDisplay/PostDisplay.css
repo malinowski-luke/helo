@@ -1,6 +1,6 @@
 .PostDisplay {
   width: 55vw;
-  height: 10vh;
+  height: 5vh;
   border: 1px solid #b9b9b9;
   display: flex;
   justify-content: space-between;
@@ -9,14 +9,13 @@
   padding: 20px;
 }
 
-.text {
+.title-text {
   color: #403d39;
-}
-
-.title {
-  font-size: 2.8rem;
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 .author {
+  color: #403d39;
   font-size: 1.5;
 }
