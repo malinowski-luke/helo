@@ -109,4 +109,4 @@ const mapStateToProps = reduxState => {
   }
 }
 
-export default connect(mapStateToProps, {})(Form)
+export default connect(mapStateToProps)(Form)

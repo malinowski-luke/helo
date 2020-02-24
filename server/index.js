@@ -10,6 +10,7 @@ const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
 // middleware
 app.use(express.json())
+// stored on req request req.sesseion
 app.use(
   session({
     resave: false,

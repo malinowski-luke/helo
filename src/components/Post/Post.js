@@ -86,4 +86,4 @@ const mapsStateToProps = reduxState => {
   const { user } = reduxState
   return { user }
 }
-export default connect(mapsStateToProps, {})(Post)
+export default connect(mapsStateToProps)(Post)
