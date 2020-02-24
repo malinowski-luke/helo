@@ -21,7 +21,8 @@ class Dashboard extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.userpost !== this.state.userpost) this.getPosts()
+    const { userpost } = this.state
+    if (prevState.userpost !== userpost) this.getPosts()
   }
 
   getPosts = () => {
@@ -64,7 +65,6 @@ class Dashboard extends Component {
   searchPosts = () => {
     const { search, userpost } = this.state
     const { user_id } = this.props.user
-    console.log(user_id)
     if (search === '') alert('please enter a search keyword')
     else {
       if (userpost) {
@@ -141,4 +141,5 @@ const mapsStateToProps = reduxState => {
   const { user } = reduxState
   return { user }
 }
+
 export default connect(mapsStateToProps, {})(Dashboard)

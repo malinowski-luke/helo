@@ -17,8 +17,7 @@ class Form extends Component {
   addPost = () => {
     const { title, img, content } = this.state
     const { user_id } = this.props.user
-    if (title === '' || img === '' || content === '')
-      alert('plsease fill out all the fields')
+    if (title === '' || content === '') alert('plsease fill out all the fields')
     else {
       axios
         .post(`/api/post/${user_id}`, { title, img, content, user_id })

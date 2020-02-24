@@ -42,7 +42,6 @@ class Post extends Component {
 
   render() {
     const { post } = this.state
-    console.log(this.state.post)
     return (
       <div className='Post'>
         <div className='post-container'>
