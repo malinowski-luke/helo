@@ -26,11 +26,12 @@ class Dashboard extends Component {
 
   getPosts = () => {
     const { search, userpost } = this.state
+    const { user_id } = this.props.user
     if (userpost && search !== '') {
       this.searchPosts()
     } else if (userpost) {
       axios
-        .get(`/api/posts/${1}`)
+        .get(`/api/posts/${user_id}`)
         .then(res => {
           this.setState({
             posts: res.data
@@ -63,6 +64,7 @@ class Dashboard extends Component {
   searchPosts = () => {
     const { search, userpost } = this.state
     const { user_id } = this.props.user
+    console.log(user_id)
     if (search === '') alert('please enter a search keyword')
     else {
       if (userpost) {

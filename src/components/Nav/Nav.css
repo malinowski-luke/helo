@@ -14,7 +14,8 @@
 }
 
 .profile-container {
-  margin: 2vw;
+  margin-top: 2vh;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

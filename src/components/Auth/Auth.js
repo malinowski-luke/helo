@@ -38,16 +38,18 @@ class Auth extends Component {
 
   handleLogin = () => {
     const { username, password } = this.state
-    axios
-      .post('/api/auth/login', {
-        username,
-        password
-      })
-      .then(res => {
-        this.props.getUser(res.data)
-        this.props.history.push('/dashboard')
-      })
-      .catch(err => alert(err.response.request.response))
+    if (username !== '' || password !== '') {
+      axios
+        .post('/api/auth/login', {
+          username,
+          password
+        })
+        .then(res => {
+          this.props.getUser(res.data)
+          this.props.history.push('/dashboard')
+        })
+        .catch(err => alert(err.response.request.response))
+    } else alert('please fill out the username and password field to login')
   }
 
   render() {
@@ -68,12 +70,13 @@ class Auth extends Component {
           <div className='input-container'>
             <label className='auth-label'>Password:</label>
             <input
+              type='password'
               name='password'
               value={password}
               onChange={e => this.handleIput(e)}
             />
           </div>
-          <div>
+          <div className='input-container'>
             <button
               className='auth-button'
               onClick={() => {

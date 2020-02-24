@@ -7,15 +7,38 @@
   align-items: center;
   margin-top: 2vh;
   padding: 20px;
+  text-decoration: none;
+}
+
+.user-profile-img-container {
+  width: 60px;
+  height: 60px;
+  background-color: #f3f3f3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 8px #000000;
+}
+
+.user-profile-img {
+  max-width: 75%;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-text {
   color: #403d39;
   font-size: 2rem;
-  text-decoration: none;
 }
 
 .author {
+  display: inline;
   color: #403d39;
   font-size: 1.5;
+  margin-right: 1vw;
 }

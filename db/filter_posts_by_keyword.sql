@@ -1,3 +1,4 @@
-SELECT * FROM posts
-WHERE title like $1 --OR content like $1;
-ORDER BY post_id DESC;
+SELECT p.post_id, p.title, p.img, p.content, u.username, u.profile_pic
+FROM posts p JOIN users u ON u.user_id = p.author_id
+WHERE p.title like $1
+ORDER BY p.post_id DESC;

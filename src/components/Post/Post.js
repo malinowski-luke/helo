@@ -48,9 +48,16 @@ class Post extends Component {
         <div className='post-container'>
           <div className='post-header'>
             <h1 className='post-title'>{post.title}</h1>
-            <div>
-              <p>by</p>
-              <img src alt='user img' className='' />
+            <div className='user-info-container'>
+              <p className='author'>by {post.username}</p>
+              {/* css inherit from post display */}
+              <div className='user-profile-img-container'>
+                <img
+                  src={post.profile_pic}
+                  alt='user profile pic'
+                  className='user-profile-img'
+                />
+              </div>
             </div>
           </div>
           <div className='post-body'>
