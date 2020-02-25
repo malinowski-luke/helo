@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs')
 const img = require('../imgGenerator/imgGenerator')
+
 module.exports = {
   register: async (req, res) => {
     const db = req.app.get('db')
