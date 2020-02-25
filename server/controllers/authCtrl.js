@@ -35,7 +35,6 @@ module.exports = {
     } else res.status(401).send('incorrect password')
   },
   logout: (req, res) => {
-    console.log('hit')
     req.session.destroy()
     res.sendStatus(200)
   },
