@@ -24,7 +24,10 @@ class Nav extends Component {
     axios
       .get('/api/user')
       .then(res => this.props.getUser(res.data))
-      .catch(() => this.props.history.push('/'))
+      .catch(err => {
+        alert(err.response.request.response)
+        this.props.history.push('/')
+      })
   }
 
   render() {

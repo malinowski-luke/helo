@@ -39,9 +39,9 @@ module.exports = {
     req.session.destroy()
     res.sendStatus(200)
   },
-  getUser: (req, res, next) => {
+  getUser: (req, res) => {
     const { user } = req.session
     if (user) res.status(200).send(user)
-    else next()
+    else res.status(500).send('please log in')
   }
 }
