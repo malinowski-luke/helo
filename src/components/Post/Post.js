@@ -71,14 +71,14 @@ class Post extends Component {
                 <button className='post-button' onClick={this.deletePost}>
                   Delete
                 </button>
-                <button
+                {/* <button
                   className='post-button'
                   onClick={() => {
                     this.props.history.push('/dashboard')
                   }}
                 >
                   Edit
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
