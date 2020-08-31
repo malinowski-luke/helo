@@ -7,8 +7,10 @@ const express = require('express'),
   ctrl = require('./controllers/ctrl')
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
+const PORT = SERVER_PORT || 9000
 
 // middleware
+app.use(express.static(__dirname + '/../build'))
 app.use(express.json())
 // stored on req request req.sesseion
 app.use(
@@ -17,24 +19,24 @@ app.use(
     saveUninitialized: true,
     rejectUnauthorized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
-    secret: SESSION_SECRET
+    secret: SESSION_SECRET,
   })
 )
 // db connection
 massive({
   connectionString: CONNECTION_STRING,
   ssl: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 })
-  .then(db => {
+  .then((db) => {
     app.set('db', db)
-    app.listen(SERVER_PORT || 4040, () =>
-      console.log(`|----server running on port:${SERVER_PORT}----|`)
+    app.listen(PORT, () =>
+      console.log(`|----server running on port:${PORT}----|`)
     )
     console.log('database connected')
   })
-  .catch(err => console.log(`database not connected\n ${err}`))
+  .catch((err) => console.log(`database not connected\n ${err}`))
 
 // auth endpoints
 app.post('/api/auth/register', ctrlAuth.register)
