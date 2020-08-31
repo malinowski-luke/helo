@@ -1,6 +1,6 @@
 # Introduction
 
-**Helo** is a social media app, which allows users to create profiles, post blogs, and interact with other users posts. Users can also filter posts by a keyword and post id's to find their own posts.(node required!!!!).
+**Helo**: A simple social media application, which allows users to create profiles, post blogs, and interact with other user’s posts. Users are also able to filter posts by keywords and post id's to find their own posts (node required!!!!).
 
 ## To Run This App </>
 
